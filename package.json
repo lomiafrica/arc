@@ -1,0 +1,17 @@
+{
+  "name": "@lomi./arc",
+  "version": "0.1.0",
+  "description": "Circle Arc USDC settlement for lomi. payouts and Rill agent payments",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
