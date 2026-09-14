@@ -9,9 +9,17 @@
     "node": ">=22"
   },
   "scripts": {
+    "bootstrap": "tsx scripts/bootstrap.ts",
+    "settle": "tsx scripts/settle.ts",
+    "proof": "tsx scripts/proof.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
+  "dependencies": {
+    "viem": "^2.37.8"
+  },
   "devDependencies": {
+    "@types/node": "^22.20.1",
+    "tsx": "^4.23.13",
     "typescript": "^5.9.3"
   }
 }

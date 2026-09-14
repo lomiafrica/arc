@@ -8,7 +8,7 @@ This repository is the production Arc app. USDC on Arc is the correspondent hop.
 
 Payout mapping: [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)
 
-The HTTP hop, testnet settle, and reconcile land next in this repo. Not wired to lomi. live systems until an allowlisted payout path exists.
+Not wired to lomi. live systems until an allowlisted payout path exists.
 
 ## Products
 
@@ -32,10 +32,40 @@ Not in v0: HSM/KMS, mainnet keys, or calls into the live PSP API.
 
 ```bash
 pnpm install
+cp .env.example .env
+pnpm bootstrap
+```
+
+Circle faucet needs a human (reCAPTCHA): [faucet.circle.com](https://faucet.circle.com) then Arc Testnet, USDC, omnibus address (printed by bootstrap). Then:
+
+```bash
+pnpm settle
+pnpm proof
+```
+
+Chain `5042002`. RPC `https://rpc.testnet.arc.network`. Explorer [testnet.arcscan.app](https://testnet.arcscan.app). Native gas is USDC (18 decimals). Hop is 10 native USDC with `payout_id` in calldata.
+
+Current testnet accounts (faucet still required):
+
+- Omnibus: `0xA4a07c023C9f412b4F991dC5AFba9137D856529B`
+- Merchant: `0xbff6064594AB0D037214C22cfdf708d962d6f365`
+
+Do not send mainnet USDC to these addresses.
+
+## Checks
+
+```bash
 pnpm typecheck
 ```
 
-Node 22. App bootstrap follows in this repo (payout hop, Arc testnet settle, explorer proof).
+## Local data (gitignored)
+
+| Path | Purpose |
+| --- | --- |
+| `keys/` | Testnet signing keys (never commit) |
+| `.env` | Same secrets as `keys/` |
+
+Committed public addresses (no secrets): `data/testnet-proof.json`.
 
 ## License
 
