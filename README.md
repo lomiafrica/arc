@@ -45,12 +45,16 @@ pnpm proof
 
 Chain `5042002`. RPC `https://rpc.testnet.arc.network`. Explorer [testnet.arcscan.app](https://testnet.arcscan.app). Native gas is USDC (18 decimals). Hop is 10 native USDC with `payout_id` in calldata.
 
-Current testnet accounts (faucet still required):
+Current testnet accounts. Do not send mainnet USDC to these addresses.
 
 - Omnibus: `0xA4a07c023C9f412b4F991dC5AFba9137D856529B`
-- Merchant: `0xbff6064594AB0D037214C22cfdf708d962d6f365`
+- Internal receive: `0xbff6064594AB0D037214C22cfdf708d962d6f365`
 
-Do not send mainnet USDC to these addresses.
+Testnet hop settled 15 Sep 2026. Ten native USDC. Calldata is `payout_id`.
+
+- Tx: https://testnet.arcscan.app/tx/0x43a52af26c50e0913d3199e0a91677bf261bb96e01b355d254d10246b23a8cfc
+- payout_id: `03528f0a-6a93-4e31-ad9e-15173b732083`
+- Proof JSON: [data/testnet-proof.json](./data/testnet-proof.json)
 
 ## Checks
 
