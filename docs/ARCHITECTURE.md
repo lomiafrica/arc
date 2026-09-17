@@ -12,13 +12,13 @@ Custodial correspondent hop on Circle Arc. Fiat last mile stays on lomi. Agent r
 
 ## Mapping
 
-| App | Production analogue |
-| --- | --- |
-| Omnibus wallet | Custodial treasury |
-| Internal receive address | Not a merchant wallet product |
-| Native USDC transfer | Correspondent hop |
-| Calldata = `payout_id` | Ledger key for the last-mile payout |
-| Gateway / x402 | Rill Accept and Spend |
+| App                      | Production analogue                 |
+| ------------------------ | ----------------------------------- |
+| Omnibus wallet           | Custodial treasury                  |
+| Internal receive address | Not a merchant wallet product       |
+| Native USDC transfer     | Correspondent hop                   |
+| Calldata = `payout_id`   | Ledger key for the last-mile payout |
+| Gateway / x402           | Rill Accept and Spend               |
 
 USDC is not a merchant `currency_code` on the live PSP. There is no public `POST /payouts` rail until an allowlisted test org exists.
 

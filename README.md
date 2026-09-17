@@ -12,10 +12,10 @@ Not wired to lomi. live systems until an allowlisted payout path exists.
 
 ## Products
 
-| Product | URL | Role |
-| --- | --- | --- |
-| lomi. | https://lomi.africa | Fiat PSP. Wave, MTN, cards, SPI. |
-| Rill | https://userill.com | Agent Accept (MPP / x402) and Spend. |
+| Product | URL                 | Role                                 |
+| ------- | ------------------- | ------------------------------------ |
+| lomi.   | https://lomi.africa | Fiat PSP. Wave, MTN, cards, SPI.     |
+| Rill    | https://userill.com | Agent Accept (MPP / x402) and Spend. |
 
 Company: lomi.africa S.A.R.L., Abidjan.
 
@@ -64,10 +64,10 @@ pnpm typecheck
 
 ## Local data (gitignored)
 
-| Path | Purpose |
-| --- | --- |
+| Path    | Purpose                             |
+| ------- | ----------------------------------- |
 | `keys/` | Testnet signing keys (never commit) |
-| `.env` | Same secrets as `keys/` |
+| `.env`  | Same secrets as `keys/`             |
 
 Committed public addresses (no secrets): `data/testnet-proof.json`.
 

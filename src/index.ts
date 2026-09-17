@@ -1,1 +1,1 @@
-export type { ArcPayout, ArcPayoutStatus, LastMileRail } from './payout.ts'
+export type { ArcPayout, ArcPayoutStatus, LastMileRail } from "./payout.ts";
