@@ -19,10 +19,17 @@ function ensureKeysDir(): string {
   return keysDir;
 }
 
+function isHex(value: string): value is Hex {
+  return value.startsWith("0x");
+}
+
 function normalizeSecret(raw: string): Hex {
   const trimmed = raw.trim();
   const hex = trimmed.startsWith("0x") ? trimmed : `0x${trimmed}`;
-  return hex as Hex;
+  if (!isHex(hex)) {
+    throw new Error("Invalid hex secret");
+  }
+  return hex;
 }
 
 export function loadSecret(role: KeyRole): Hex {
