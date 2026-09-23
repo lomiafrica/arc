@@ -12,6 +12,8 @@
     "bootstrap": "tsx scripts/bootstrap.ts",
     "settle": "tsx scripts/settle.ts",
     "proof": "tsx scripts/proof.ts",
+    "reconcile": "tsx scripts/reconcile.ts",
+    "test": "tsx --test --test-concurrency=1 test/*.test.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {

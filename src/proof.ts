@@ -8,6 +8,8 @@ export type TestnetProofFile = {
   merchantAddress: string;
   payoutId?: string;
   settlementTx?: string;
+  /** Decimal block. The public RPC hash lookup can miss a tx that is still in this block. */
+  blockNumber?: string;
   faucetUrl: string;
   updatedAt: string;
 };

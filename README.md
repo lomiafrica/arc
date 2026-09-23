@@ -6,7 +6,7 @@ Circle Arc settlement for [lomi.](https://lomi.africa) and [Rill](https://useril
 
 This repository is the production Arc app. USDC on Arc is the correspondent hop. Last mile stays Wave, MTN, or SPI. Merchants never hold keys. We do not issue a token. This is not a crypto checkout.
 
-Payout mapping: [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)
+Payout mapping: [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md). Reviewer steps: [docs/WALKTHROUGH.md](./docs/WALKTHROUGH.md).
 
 Not wired to lomi. live systems until an allowlisted payout path exists.
 
@@ -24,7 +24,7 @@ Company: lomi.africa S.A.R.L., Abidjan.
 - Custodial omnibus on Arc. Native USDC gas.
 - Tagged hop: `payout_id` in transaction data.
 - Reconcile against that id. Last mile unchanged.
-- Rill Gateway and x402 on Arc for agent pay links.
+- Gateway and x402 are a later phase. They are not in this repo.
 
 Not in v0: HSM/KMS, mainnet keys, or calls into the live PSP API.
 
@@ -60,7 +60,11 @@ Testnet hop settled 15 Sep 2026. Ten native USDC. Calldata is `payout_id`.
 
 ```bash
 pnpm typecheck
+pnpm test
+pnpm reconcile
 ```
+
+`pnpm test` does not call the network. `pnpm reconcile` reads the committed proof and the testnet transaction. CI runs typecheck and test only.
 
 ## Local data (gitignored)
 
