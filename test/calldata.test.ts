@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { stringToHex } from "viem";
-import { CalldataError, decodePayoutId, encodePayoutId } from "../src/calldata.js";
+import {
+  CalldataError,
+  decodePayoutId,
+  encodePayoutId,
+} from "../src/calldata.js";
 
 const PAYOUT_ID = "03528f0a-6a93-4e31-ad9e-15173b732083";
 const CALLDATA =

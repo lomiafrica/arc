@@ -18,7 +18,7 @@ async function main() {
     process.exit(1);
   }
   const tx = await fetchHopTransaction(
-    proof.settlementTx as Hash,
+    settlementHash(proof.settlementTx),
     blockNumberOf(proof.blockNumber),
   );
   const result = reconcileHop(proof, tx);
@@ -26,11 +26,15 @@ async function main() {
   console.log(result.payoutId);
 }
 
-main().catch((err: unknown) => {
-  if (err instanceof ReconcileError) {
-    console.error(err.message);
-    process.exit(1);
+function settlementHash(value: string): Hash {
+  if (!/^0x[0-9a-fA-F]{64}$/.test(value)) {
+    throw new ReconcileError("settlement tx is not a 32-byte hex hash");
   }
-  console.error(err instanceof Error ? err.message : err);
+  // SAFETY: the check matches viem's 0x-prefixed 32-byte Hash form.
+  return value as Hash;
+}
+
+main().catch((err: Error) => {
+  console.error(err.message);
   process.exit(1);
 });

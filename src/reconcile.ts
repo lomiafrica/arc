@@ -11,6 +11,14 @@ export class ReconcileError extends Error {
   }
 }
 
+function proofAddress(value: string): Address {
+  if (!/^0x[0-9a-fA-F]{40}$/.test(value)) {
+    throw new ReconcileError("proof address is not a 20-byte hex address");
+  }
+  // SAFETY: the check matches viem's 0x-prefixed 20-byte Address form.
+  return value as Address;
+}
+
 export type HopTransaction = {
   hash: Hex;
   from: Address;
@@ -45,10 +53,10 @@ export function reconcileHop(
   if (!sameHash(tx.hash, proof.settlementTx)) {
     throw new ReconcileError("transaction hash does not match the proof");
   }
-  if (!tx.to || !isAddressEqual(tx.to, proof.merchantAddress as Address)) {
+  if (!tx.to || !isAddressEqual(tx.to, proofAddress(proof.merchantAddress))) {
     throw new ReconcileError("recipient does not match the proof");
   }
-  if (!isAddressEqual(tx.from, proof.omnibusAddress as Address)) {
+  if (!isAddressEqual(tx.from, proofAddress(proof.omnibusAddress))) {
     throw new ReconcileError("sender is not the omnibus");
   }
   if (tx.value !== SETTLE_NATIVE) {
